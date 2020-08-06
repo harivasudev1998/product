@@ -1,0 +1,32 @@
+{
+  "allproducts": [
+    {
+      "name": "HTML",
+      "price": "10",
+      "rating": "8",
+      "stock": 23,
+      "id": 1
+    },
+    {
+      "name": "Java",
+      "price": 20,
+      "rating": 9,
+      "stock": 14,
+      "id": 2
+    },
+    {
+      "name": "css",
+      "price": "14",
+      "rating": "6",
+      "stock": 14,
+      "id": 3
+    },
+    {
+      "name": "JS",
+      "price": "14",
+      "rating": "6",
+      "stock": "12",
+      "id": 4
+    }
+  ]
+}
