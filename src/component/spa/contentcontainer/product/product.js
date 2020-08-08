@@ -2,8 +2,8 @@ import React from 'react';
 import axios from "axios";
 import { createHashHistory } from 'history'
 import { withRouter } from "react-router-dom";
-
-
+import 'C:/React-redux/react-app/reactspa/src/App.css';
+import Search from '../Search/search';
 
 
 import ProductDetail from './productdetail';
@@ -14,6 +14,7 @@ class Product extends React.Component {
         super(props)
         this.state={
             products:[],
+            permanentproductList:[],
             deleteSuccess:false,
             myid:0,
             Stock:0
@@ -31,6 +32,7 @@ class Product extends React.Component {
     }
 
     componentWillMount(){
+        if(this.state.permanentproductList == 0)
         this.getAllProducts()
     }
 
@@ -39,18 +41,18 @@ class Product extends React.Component {
         console.log(this.props)    
     }
 
+    
     getAllProducts=()=>{
         axios.get('http://localhost:3000/allproducts')
                 .then(response=>{
                     console.log(response);
                     console.log(response.data)
-                    this.setState({products: response.data})
+                    this.setState({products: response.data, permanentproductList: response.data})
                     console.log(this.state.products);
                 }, error=>{
                     console.error(error);
                 })
     }
-
     deleteProductWithId=(id)=>{
         console.log('delete product for received id: ' + id);
         axios.delete('http://localhost:3000/allproducts/' + id)
@@ -102,7 +104,22 @@ class Product extends React.Component {
                                 })
      }
 
+    search = (word) => {
+        if (word === '') {
+            this.setState({ products: this.state. permanentproductList })
+        } else {
+            var searchproductList = this.state.permanentproductList.filter(product => product.name.toLowerCase().startsWith(word.toLowerCase()))
+            console.log(searchproductList)
+            this.setState({  products: searchproductList })
+        }
+    }
+
+ 
+
     renderAllProducts=()=>{
+        if (this.state.products.length === 0) {
+            return(<h2 style={{color:"red",textAlign:"center"}}>  No Product Found !</h2>)
+        } else {
         return this.state.products.map(product=>{
             return(
               
@@ -112,6 +129,7 @@ class Product extends React.Component {
                         name={product.name}
                         price={product.price}
                         rating={product.rating}
+                        img={product.productimage}
                         stock={product.stock}
                         deleteId={this.deleteProductWithId}
                         editId={this.editProductWithId}
@@ -124,6 +142,7 @@ class Product extends React.Component {
             )
         })
     }
+}
 
     openAddProduct=()=>{
         
@@ -144,37 +163,35 @@ class Product extends React.Component {
                                 })
     }
   
-    render() { 
+    render() {
+        // const buttonProduct={
+        //     backgroundColor:"green",
+        //     color:"white",
+        //     padding:'100px',
+        //     margin:'10px',
+        //     border:'none',
+        //     opacity: 0.8,
+        //     float:'right',
+        //     marginRight:'20%'
+            
+        // } 
         return ( 
     
-               <div>
-                    <button onClick={this.openAddProduct}>Add Product</button>
-                    <br></br>
-                    <table border="1">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Price</th>
-                                <th>Rating</th>
-                                <th>Stock</th>
-                                <th colSpan='4'>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        
-                                {this.renderAllProducts()}
-                        
-                        </tbody>
+               <div className="container">
+                    <Search search={this.search} />
 
-                    </table>
+                        {this.renderAllProducts()}
+                    
                     {this.state.deleteSuccess &&
                     <div>
                           <h3>Product deleted success!!!!</h3>  
                     </div>
                     }
+                   
+                      <button onClick={this.openAddProduct} className="buttonProduct">Need to Add New Product (Click here)</button>
+                    <br></br>
                 </div>
-      
+           
          );
     }
 }

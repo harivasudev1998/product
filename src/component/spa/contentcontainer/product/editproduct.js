@@ -15,7 +15,8 @@ class EditProduct extends React.Component {
             price:0,
             id: 0,
             rating:0,
-            stock:0
+            stock:0,
+            productimage:''
         }
 
     }
@@ -31,6 +32,7 @@ class EditProduct extends React.Component {
                         id: response.data.id,
                         rating:response.data.rating,
                         stock:response.data.stock,
+                        productimage:response.data.productimage
                     })
                 }, error=>{
                     console.error(error);
@@ -67,24 +69,43 @@ class EditProduct extends React.Component {
 
     }
 
+    getImage=(event)=>{
+        console.log(event);
+        console.log(event.target);
+        console.log(event.target.value);
+        console.log(event.target.value.substr(12));
+        this.setState({productimage: event.target.value.substr(12)})
+    }
+
     editProduct=()=>{
         console.log('Edit product via axios and put')
         let productRequestBody = {
             "name": this.state.name,
             "price": this.state.price,
             "rating":this.state.rating,
-            "stock":this.state.stock
+            "stock":this.state.stock,
+            "productimage":this.state.productimage
         }
         axios.put('http://localhost:3000/allproducts/'+this.state.id, productRequestBody)
                 .then(response=>{
                     console.log(response);
-                    this.props.history.push('/')
+                    this.props.history.push('/products')
                 }, error=>{
                     console.error(error);
                 })
     }
 
     render() { 
+        const buttonclr={
+            backgroundColor:"green",
+            color:"white",
+            padding:'15px',
+            // margin:'10px',
+            border:'none',
+            opacity: 0.9,
+           
+            
+        } 
         if(this.props.location.state === undefined){
             return (
                 <div>
@@ -94,38 +115,38 @@ class EditProduct extends React.Component {
         }
         return ( 
             <div>
-                <h1>Edit product with id:{this.props.location.state.myid}  </h1>
-                <div>
-                <h3>Edit Product!!!!</h3>
-                <form>
-                    <label>Id: </label>
+                {/* <h1>Edit product with id:{this.props.location.state.myid}  </h1> */}
+                <div className="contain">
+                <h2 style={{color:"red"}}>Edit Product</h2>
+                <form className="container">
+                    <b><label>Id: </label></b>
                     <input type="text" value={this.state.id} readOnly></input>
                     <br></br>
-                    <label>Name: </label>
+                    <br></br>
+                    <b><label>Name: </label></b>
                     <input type='text' id="productname" value={this.state.name}  onChange={this.getName}></input>
                     <br></br>
-                    <label>Price: </label>
+                    <br></br>
+                    <b><label>Price: </label></b>
                     <input type='number' id="productprice" value={this.state.price}  onChange={this.getPrice}></input>
                     <br></br>
-                    <label>Rating: </label>
+                    <br></br>
+                    <b><label>Rating: </label></b>
                     <input type='number' id="productrating" value={this.state.rating}  onChange={this.getRating}></input>
                     <br></br>
-                    <label>Stock: </label>
+                    <br></br>
+                    <b><label>Stock: </label></b>
                     <input type='number' id="productstock" value={this.state.stock}  onChange={this.getStock}></input>
                     <br></br>
-                    <button type="button" onClick={this.editProduct}>Edit Product</button>
                     <br></br>
-                    {/* <div>
-                        <h4>Preview</h4>
-                        Product Name: {this.state.productname}
-                        <br></br>
-                        Product Price: {this.state.productprice}
-                        <br></br>
-                        Product Rating: {this.state.productrating}
-                        <br></br>
-                        Product Stock: {this.state.productstock}
-                        <br></br>
-                    </div> */}
+                    <b><label>Product Image: </label></b>
+                    <input type="file" onChange={this.getImage} multiple accept='image/*' />
+                    <br></br>
+                    <br></br>
+                    <button type="button" onClick={this.editProduct} style={buttonclr}>Edit Product</button>
+                    <br></br>
+                    <br></br>
+                  
                     
                 </form>
             </div>

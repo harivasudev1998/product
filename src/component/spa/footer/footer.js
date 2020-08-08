@@ -9,14 +9,15 @@ class Footer extends React.Component {
             backgroundColor:"pink",
             display:'inline',
             padding: '10px',
-            margin: '5px'
+            margin: ''
+          
             
         }
         return ( 
-            <div>
+            <div className="foot">
 
    
-                <h4>This is footer</h4>
+                {/* <h4>This is footer</h4> */}
 
                 <span>
                 <ul style={{listStyleType:'none',position:"fixed",bottom:"0"}}>

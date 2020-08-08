@@ -1,6 +1,8 @@
 import React from 'react';
 // import axios from 'axios';
 import { createHashHistory } from 'history'
+import 'C:/React-redux/react-app/reactspa/src/App.css';
+
 
 
 class ProductDetail extends React.Component {
@@ -11,7 +13,8 @@ class ProductDetail extends React.Component {
             name:this.props.name,
             price:this.props.price,
             rating:this.props.rating,
-            stock:this.props.stock
+            stock:this.props.stock,
+            img:this.props.productimage
         }
        
     }
@@ -45,28 +48,33 @@ class ProductDetail extends React.Component {
         history.push('/products')
     } 
     render() { 
+        let imgStyle ={
+            width:'100%',
+            borderRadius:'10px'
+        }
+     
+            
+            
+        // } 
+      
       
         return ( 
-            <tr>
-                <td>{this.props.id} </td>
-                <td>{this.props.name} </td>
-                <td>{this.state.price}</td>
-                <td>{this.state.rating}</td>
-                <td>{this.state.stock}</td>
-                <td>
-                    <button onClick={this.stockAdd}>Stock + </button>
-                </td>
-                <td>
-                    <button onClick={this.stockSub}>Stock - </button>
-                </td>
-                <td>
-                    <button onClick={this.editProductWithId}>Edit</button>
-                </td>
-                <td>
-                    <button onClick={this.deleteCurrentProduct}>Del</button>
-                </td>
-                
-            </tr>    
+      
+        <div className="card">
+        <span className=" subcard left">
+                <img className="cardimg" src={"images/" + this.props.img} style={imgStyle}
+                alt="productImage"></img>
+        </span>
+        <span className="subcard right">
+            <br></br><h3 className="cardtitle">{this.props.name}</h3><br></br>
+            <h4 className="carditem"><span className="left">Rs: {this.props.price}</span></h4><br></br>
+            <h4 className="carditem"><span className="left">Stock: {this.props.stock}</span><span className="right">Rating: {this.props.rating}</span></h4><br></br>
+            <h4 className="carditem"><span><button className="left buttonClr" onClick={this.stockAdd} >Stock +</button>
+            <button className="left buttonClr" onClick={this.stockSub} >Stock -</button></span></h4>
+            <h4 className="carditem"><span>
+            <button className="right buttonClr" onClick={this.deleteCurrentProduct} >Delete</button><button className="right buttonClr" onClick={this.editProductWithId} >Edit</button></span></h4>
+        </span>
+    </div>
         )
     }
        

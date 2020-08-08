@@ -1,5 +1,7 @@
 import React from 'react';
-
+import 'C:/React-redux/react-app/reactspa/src/App.css';
+import { createHashHistory } from 'history';
+import axios from 'axios';
 
 class Login extends React.Component {
    
@@ -7,54 +9,103 @@ class Login extends React.Component {
         super(props)
         this.state ={
             username:'',
-            psw:'',
-            value: ''
+            password:'',
+            // value: '',
+            wrongPassword: false,
+            wrongUsername: false,
+            invalidUsername: true,
+            invalidPassword: true
+
         }
-        this.handleSubmit = this.handleSubmit.bind(this);
+   
     }
 
+    login = () => {
+        axios.get('http://localhost:3000/users')
+            .then(response => {
+                this.setState({ users: response.data })
+                console.log(this.state.users)
+                var loguser = this.state.users.find(user => user.username === this.state.username)
+                console.log(loguser)
+                if (loguser === undefined) {
+                    this.setState({ wrongUsername: true })
+                } else {
+                    if (loguser.password === this.state.password) {
+                        // this.setState({ username: loguser.firstname })
+                        this.props.history.push('/products')
+                    } else {
+                        this.setState({ wrongPassword: true })
+                    }
+                }
+            }, error => { console.error(error); })
+
+    }
 
     getusername=(event)=>{
-        console.log(event)
-        console.log(event.target)
+    
         console.log(event.target.value)
+        this.setState({ wrongUsername: false })
         this.setState({username: event.target.value})
-
+        if (event.target.value==='') {
+            this.setState({invalidUsername : true})
+            
+        }else{
+            this.setState({invalidUsername : false})
+            this.setState({ username: event.target.value })
+        }
     }
 
-    getpsw=(event)=>{
+    getpassword=(event)=>{
         console.log(event)
         console.log(event.target)
         console.log(event.target.value)
-        this.setState({psw: event.target.value})
+        this.setState({ wrongPassword: false })
+        if(event.target.value === ''){
+            this.setState({invalidPassword : true})
+        }else{
+            this.setState({invalidPassword:false})
+        this.setState({ password: event.target.value })
+        }
     }
 
-    handleSubmit(event) {
-       
-        event.preventDefault();
-        alert("You are submitting " + this.state.username);
-        
-      }
-
+      
     render() { 
+        const buttonclr={
+            backgroundColor:"green",
+            color:"white",
+            padding:'15px',
+            border:'none',
+            opacity: 0.9,
+    
+            
+        } 
         return ( 
-            <div>
-                <h1>This is Login Page!!!!</h1>
-                <form  onSubmit={this.handleSubmit}>
-                    <label>username: </label>
+            <div className="contain" style={{backgroundColor:"lightgoldenrodyellow",paddingTop:'10px',paddingBottom:'330px'}}>
+                <h1 style={{color:"blue"}}>Login</h1>
+                {this.state.wrongEmail && <h3 className='error'>Invalid Email Id</h3>}
+                {this.state.wrongPassword && <h3 className='error'>Invalid Password</h3>}
+                <form  >
+                <div className="container">
+                    <b><label>Username:  </label></b>
                     <input type='text' id="username" onChange={this.getusername}></input>
+                    {this.state.invalidUsername && <span className='error' name="username">Username must not be empty</span>}
                     <br></br>
                     {/* username: { this.state.username } */}
                     <br></br>
 
-                    <label>Password:</label>
-                    <input type="password" id="psw" onChange={this.getpsw}></input>
-                    {/* Password: { this.state.psw } */}
+                    <b><label>Password:  </label></b>
+                    <input type="password" id="password" onChange={this.getpassword} name="password"></input>
+                    {this.state.invalidPassword && <span className='error'>Password is required</span>}
+                    {/* Password: { this.state.password } */}
                     <br></br>
-
-                    <button type="submit">Login</button>
+                    <br></br>
                     
+                    <a href="/">Forgot Password.?</a>&nbsp;
+                    <input type="button" onClick={this.login} disabled={this.state.invalidUsername || this.state.invalidPassword} value="Login"></input>
+                    <br></br>
+                    <br></br>
                     
+                  </div>  
                 </form>
             </div>
          );
@@ -62,3 +113,4 @@ class Login extends React.Component {
 }
  
 export default Login;
+export const history = createHashHistory();

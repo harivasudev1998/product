@@ -1,32 +1,79 @@
 {
   "allproducts": [
     {
-      "name": "HTML",
-      "price": "10",
-      "rating": "8",
-      "stock": 23,
+      "name": "One plus Nord 5G",
+      "price": "28000",
+      "rating": "9",
+      "stock": 107,
+      "productimage": "1.jpg",
       "id": 1
     },
     {
-      "name": "Java",
-      "price": 20,
-      "rating": 9,
-      "stock": 14,
+      "name": "Redmi Note 8",
+      "price": "12500",
+      "rating": "8",
+      "stock": 162,
+      "productimage": "2.jpg",
       "id": 2
     },
     {
-      "name": "css",
-      "price": "14",
-      "rating": "6",
-      "stock": 14,
+      "name": "Samsung Galaxy M31",
+      "price": "20500",
+      "rating": "10",
+      "stock": 186,
+      "productimage": "3.jpg",
       "id": 3
     },
     {
-      "name": "JS",
-      "price": "14",
-      "rating": "6",
-      "stock": "12",
+      "name": "OPPO F15",
+      "price": "19000",
+      "rating": "8",
+      "stock": "146",
+      "productimage": "4.jpg",
       "id": 4
     }
+  ],
+  "users": [
+    {
+      "firstname": "Hari",
+      "lastname": "Vasudev",
+      "username": "hari",
+      "password": "123",
+      "confirmpassword": "123",
+      "id": 1
+    },
+    {
+      "firstname": "pre",
+      "lastname": "veen",
+      "username": "sasa",
+      "password": "1234",
+      "confirmpassword": "1234",
+      "id": 2
+    },
+    {
+      "firstname": "harry",
+      "lastname": "v",
+      "username": "harry",
+      "password": "123",
+      "confirmpassword": "123",
+      "id": 3
+    },
+    {
+      "firstname": "pra",
+      "lastname": "nav",
+      "username": "pranav",
+      "password": "123",
+      "confirmpassword": "123",
+      "id": 4
+    },
+    {
+      "firstname": "harry",
+      "lastname": "vasu",
+      "username": "hari12",
+      "password": "12",
+      "confirmpassword": "12",
+      "id": 5
+    }
+   
   ]
 }

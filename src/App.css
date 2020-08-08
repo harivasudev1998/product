@@ -1,0 +1,192 @@
+.head {
+    background-color: lightsalmon;
+    overflow: auto;
+    padding: 20px 10px;
+    /* float: right; */
+    color: black;
+    text-align: right;
+    padding: 10px;
+    text-decoration: none;
+     font-size: 18px; 
+     line-height: 25px;
+     border-radius: 4px;
+  }
+
+  .head:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .foot{
+    text-align: center;
+    overflow: auto;
+    padding: 30px;
+    width: 100%;
+    height: auto;
+    background-color: lightsalmon;
+    color: black;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+  }
+
+ .contain  {
+    border:2px solid;
+    border-width: 3px;
+    border-color: black;
+    text-align: center;
+    
+}
+
+.card {
+  display: inline-block;
+  width: 43%;
+  height: 30%;
+  margin: 1%;
+  padding: 1%;
+  border: 3px solid red;
+  min-width: 400px;
+  margin-bottom: 80px;
+  background-color:skyblue;
+}
+.cardimg{
+  width: 100%;
+  height: 250px;
+ 
+}
+.subcard{
+  width: 50%;
+}
+.cardtitle{
+  margin: 1%;
+  width: 98%;
+  text-align: center;
+}
+.carditem{
+  margin: 1%;
+  padding-left: 1% ;
+  padding-right: 1%;
+  /* text-align: left; */
+  width: 96%;
+  /* display: inline-block; */
+}
+
+
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+
+.cardstyle{
+  
+  
+    
+    max-width: 400px;
+    border-color: black;
+   border-style: solid;
+    /* margin: left; */
+    text-align: center;
+    font-family: arial;
+    margin-bottom: 100px;
+    
+}
+
+.buttonProduct{
+  background-color:green;
+  color: white;
+  font-weight: bolder;
+  font-size: 14px;
+  padding:60px;
+  width: 20%;
+  margin:10px;
+  border:none;
+  opacity: 0.8;
+  margin-bottom: 80px;
+  text-align: center;
+  margin-right: 60%;
+ 
+  /* float:right; */
+  /* margin-right:20%; */
+}
+
+.buttonProduct:after{
+  content: "";
+    display: contents;
+    clear: both;
+}
+
+
+.buttonClr{
+  background-color:purple;
+  color:white;
+  padding:10px;
+  margin:10px;
+  border:none;
+  opacity: 0.8;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 12px;
+  /* float:right; */
+  /* margin-right:20%; */
+  
+}
+
+.buttonClr:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+
+.error{
+  color: red;
+}
+
+.searchbar{
+
+  text-align: center;
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 60%;
+  padding: 10px 20px 10px 40px;
+
+}
+.searchbutton{
+  padding: 10px;
+  width: 15%;
+  height: 5%;
+  border: 1px solid black;
+  background: blueviolet;
+  color: aqua;
+
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* .searchbar {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-image: url('searchicon.png');
+  padding: 10px 20px 10px 40px;
+  transition: width 0.5s ease-in-out;
+} */
+
+  /* .head:hover {
+    background-color:blue;
+    color: black;
+  } */
+
+  @media screen and (max-width: 500px) {
+    .header {
+      float: none;
+      display: inline-block;
+      text-align: left;
+    }
+  }
