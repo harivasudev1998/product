@@ -73,7 +73,14 @@
       "password": "12",
       "confirmpassword": "12",
       "id": 5
+    },
+    {
+      "firstname": "ram",
+      "lastname": "kumar",
+      "username": "ram",
+      "password": "123",
+      "confirmpassword": "123",
+      "id": 6
     }
-   
   ]
 }
