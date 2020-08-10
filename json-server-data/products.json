@@ -4,7 +4,7 @@
       "name": "One plus Nord 5G",
       "price": "32500",
       "rating": "10",
-      "stock": 132,
+      "stock": "156",
       "image": "1.jpg",
       "id": 1
     },
@@ -20,7 +20,7 @@
       "name": "Redmi",
       "price": "14000",
       "rating": "9",
-      "stock": "122",
+      "stock": "134",
       "image": "3.jpg",
       "id": 3
     },

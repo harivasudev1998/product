@@ -1,5 +1,5 @@
 import React from 'react';
-import { Chart,Pie } from 'react-chartjs-2';
+import { Chart,Pie, Bar, Line } from 'react-chartjs-2';
 import axios from 'axios';
 
 
@@ -14,12 +14,6 @@ class Home extends React.Component {
     }
 }
 
-componentWillMount(){
-  
-    if(localStorage.getItem('loggedIn') === null){
-        this.props.history.push('/');
-    }
-}
 componentDidMount() {
   this.getChartData();
 }
@@ -42,7 +36,7 @@ getChartData() {
              
             ) 
          });
-         console.log(titles)
+         console.log("titles"+titles)
          console.log("stocks"+stocks)
          this.setState({chartData:
             {
@@ -50,7 +44,7 @@ getChartData() {
             datasets:[{
                 label:'Stock Availability',
                 data:[
-                    stocks
+                    ...stocks
                 ],
                 backgroundColor:[
                     'rgba(225,99,132,0.6)',
@@ -66,25 +60,16 @@ getChartData() {
         });
     })
     
-    
+    console.log("dataset");
     console.log(this.state.chartData)
 }
 render() { 
     return ( 
-        <div className="dashboard">
+        <div className="dashboard" style={{marginBottom:"100px"}}>
+            
             <div>
-              
-                
-            </div>
-            <div>
-            {/* {Object.keys(this.state.chartData).length &&
-            <Chart
-              chartData={this.state.chartData}
-              location="Massachusetts"
-              legendPosition="bottom"
-            />
-          } */}
-                <h1>Chart</h1>
+        
+                <h1 style={{color:'blue',backgroundColor:"yellowgreen",textAlign:"center",fontFamily:"cursive"}}>Dashboard</h1>
                 <Pie
                 data={this.state.chartData}
                 height={80}
@@ -100,6 +85,38 @@ render() {
                 }}>
 
                 </Pie>
+
+                <Bar
+                data={this.state.chartData}
+                height={50}
+                options={{
+                    title:{
+                        display:true,
+                        text:'Stock Availability'
+                    },
+                    legend:{
+                        display:true,
+                        position:"top"
+                    }
+                }}>
+
+                </Bar>
+
+                <Line
+                data={this.state.chartData}
+                height={50}
+                options={{
+                    title:{
+                        display:true,
+                        text:'Stock Availability'
+                    },
+                    legend:{
+                        display:true,
+                        position:"top"
+                    }
+                }}>
+
+                </Line>
             </div>
         </div>
      );
