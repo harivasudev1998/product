@@ -1,5 +1,5 @@
 import React from 'react';
-import 'C:/React-redux/react-app/reactspa/src/App.css';
+import '../css/App.css';
 
 
 class Search extends React.Component {

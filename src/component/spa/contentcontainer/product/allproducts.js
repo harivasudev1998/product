@@ -1,6 +1,6 @@
 import React from 'react';
 import Product from './product';
-// import Search from '../Search/search';
+
 
 
 class AllProducts extends React.Component {

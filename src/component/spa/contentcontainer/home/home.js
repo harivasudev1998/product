@@ -1,5 +1,5 @@
 import React from 'react';
-import Dashboard from 'C:/React-redux/react-app/reactspa/src/component/spa/contentcontainer/dashboard/dashboard.js';
+import Dashboard from '../dashboard/dashboard';
 
 
 class Home extends React.Component {

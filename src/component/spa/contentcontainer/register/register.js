@@ -1,7 +1,7 @@
 import React from 'react';
-import 'C:/React-redux/react-app/reactspa/src/App.css';
+import '../css/App.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom'
+
 
 class Register extends React.Component {
    
@@ -110,18 +110,6 @@ class Register extends React.Component {
         }
     }
 
-    // vaildsubmit = () => {
-    //     console.log("valid submit")
-    //     console.log(this.state)
-    //     if (this.state.invalidfirstname || this.state.invalidlastname || this.state.invalidusername || this.state.invalidpassword || this.state.invalidconfirmpassword ) {
-    //         console.log('validation:fail')
-    //         this.setState({ invalidsubmit: true })
-    //     } else {
-    //         console.log('validation :success')
-    //         this.setState({ invalidsubmit: false })
-    //     }
-    //     return this.state.invalidsubmit
-    // }
 
     render() { 
         const buttonclr={

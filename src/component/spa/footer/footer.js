@@ -17,7 +17,7 @@ class Footer extends React.Component {
             <div className="foot">
 
    
-                {/* <h4>This is footer</h4> */}
+               
 
                 <span>
                 <ul style={{listStyleType:'none',position:"fixed",bottom:"0"}}>

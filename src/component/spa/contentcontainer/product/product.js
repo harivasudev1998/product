@@ -2,7 +2,7 @@ import React from 'react';
 import axios from "axios";
 import { createHashHistory } from 'history'
 import { withRouter } from "react-router-dom";
-import 'C:/React-redux/react-app/reactspa/src/App.css';
+import '../css/App.css';
 import Search from '../Search/search';
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import 'C:/React-redux/react-app/reactspa/src/App.css';
+import '../css/App.css';;
 
 class AddProduct extends React.Component {
 
@@ -110,17 +110,7 @@ class AddProduct extends React.Component {
                     <button type="button" onClick={this.addProduct} style={buttonclr}>Add Product</button>
                     <br></br>
                     <br></br>
-                    {/* <div>
-                        <h4>Preview</h4>
-                        Product Name: {this.state.productname}
-                        <br></br>
-                        Product Price: {this.state.productprice}
-                        <br></br>
-                        Product stock: {this.state.productstock}
-                        <br></br>
-                        Product Rating: {this.state.productrating}
-                        <br></br>
-                    </div> */}
+                   
                     
                 </form>
             </div>

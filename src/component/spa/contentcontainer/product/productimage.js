@@ -1,14 +1,14 @@
-import React from 'react';
+// import React from 'react';
 
-class ProductImage extends React.Component {
-    state = {  }
-    render() { 
-        return (  
-            <span>
-                <img src="{this.props.img}" alt="pi"></img>
-            </span>
-        );
-    }
-}
+// class ProductImage extends React.Component {
+//     state = {  }
+//     render() { 
+//         return (  
+//             <span>
+//                 <img src="{this.props.img}" alt="pi"></img>
+//             </span>
+//         );
+//     }
+// }
  
-export default ProductImage;
+// export default ProductImage;

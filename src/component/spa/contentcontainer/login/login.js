@@ -1,5 +1,5 @@
 import React from 'react';
-import 'C:/React-redux/react-app/reactspa/src/App.css';
+import '../css/App.css';
 import { createHashHistory } from 'history';
 import axios from 'axios';
 
@@ -32,7 +32,7 @@ class Login extends React.Component {
                 } else {
                     if (loguser.password === this.state.password) {
                         // this.setState({ username: loguser.firstname })
-                        this.props.history.push('/products')
+                        this.props.history.push('/')
                     } else {
                         this.setState({ wrongPassword: true })
                     }

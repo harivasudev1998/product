@@ -1,7 +1,7 @@
 import React from 'react';
 // import axios from 'axios';
 import { createHashHistory } from 'history'
-import 'C:/React-redux/react-app/reactspa/src/App.css';
+import '../css/App.css';;
 
 
 
@@ -61,11 +61,11 @@ class ProductDetail extends React.Component {
         return ( 
       
         <div className="card">
-        <span className=" subcard left">
+        <span className=" cards left">
                 <img className="cardimg" src={"images/" + this.props.img} style={imgStyle}
                 alt="productImage"></img>
         </span>
-        <span className="subcard right">
+        <span className="cards right">
             <br></br><h3 className="cardtitle">{this.props.name}</h3><br></br>
             <h4 className="carditem"><span className="left">Rs: {this.props.price}</span></h4><br></br>
             <h4 className="carditem"><span className="left">Stock: {this.props.stock}</span><span className="right">Rating: {this.props.rating}</span></h4><br></br>
