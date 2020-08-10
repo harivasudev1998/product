@@ -82,7 +82,7 @@ class Login extends React.Component {
         return ( 
             <div className="contain" style={{backgroundColor:"lightgoldenrodyellow",paddingTop:'10px',paddingBottom:'330px'}}>
                 <h1 style={{color:"blue"}}>Login</h1>
-                {this.state.wrongEmail && <h3 className='error'>Invalid Email Id</h3>}
+                {this.state.wrongUsername && <h3 className='error'>Invalid Username</h3>}
                 {this.state.wrongPassword && <h3 className='error'>Invalid Password</h3>}
                 <form  >
                 <div className="container">
