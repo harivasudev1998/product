@@ -16,7 +16,7 @@ componentWillMount() {
 }
 
 stockData = () => {
-  axios.get('http://localhost:3000/products')
+  axios.get('http://localhost:3000/allproducts')
       .then(response => {
           console.log(response.data)
           this.setState({ stockList: response.data.stock })
