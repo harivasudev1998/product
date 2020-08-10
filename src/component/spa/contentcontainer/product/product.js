@@ -80,7 +80,7 @@ class Product extends React.Component {
         
             // this.setState({since:parseInt(response.data.since)+1})
                      this.getAllProducts()
-                     window.location.reload(false);
+                    //  window.location.reload(false);
                     },error=>{
                         console.log(error.error)
                     })
@@ -129,7 +129,7 @@ class Product extends React.Component {
                         name={product.name}
                         price={product.price}
                         rating={product.rating}
-                        img={product.productimage}
+                        img={product.image}
                         stock={product.stock}
                         deleteId={this.deleteProductWithId}
                         editId={this.editProductWithId}

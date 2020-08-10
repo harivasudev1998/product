@@ -2,34 +2,34 @@
   "allproducts": [
     {
       "name": "One plus Nord 5G",
-      "price": "28000",
-      "rating": "9",
-      "stock": 108,
-      "productimage": "1.jpg",
+      "price": "32500",
+      "rating": "10",
+      "stock": 132,
+      "image": "1.jpg",
       "id": 1
     },
     {
-      "name": "Redmi Note 8",
-      "price": "12500",
-      "rating": "8",
-      "stock": 162,
-      "productimage": "2.jpg",
+      "name": "Oppo",
+      "price": "20000",
+      "rating": "9",
+      "stock": 123,
+      "image": "2.jpg",
       "id": 2
     },
     {
-      "name": "Samsung Galaxy M31",
-      "price": "20500",
-      "rating": "10",
-      "stock": 186,
-      "productimage": "3.jpg",
+      "name": "Redmi",
+      "price": "14000",
+      "rating": "9",
+      "stock": "122",
+      "image": "3.jpg",
       "id": 3
     },
     {
-      "name": "OPPO F15",
-      "price": "19000",
-      "rating": "8",
-      "stock": "146",
-      "productimage": "4.jpg",
+      "name": "Samsung Galaxy M31",
+      "price": "20000",
+      "rating": "9",
+      "stock": "122",
+      "image": "4.jpg",
       "id": 4
     }
   ],
@@ -81,6 +81,14 @@
       "password": "123",
       "confirmpassword": "123",
       "id": 6
+    },
+    {
+      "firstname": "hari",
+      "lastname": "vasudev",
+      "username": "hari1234",
+      "password": "123",
+      "confirmpassword": "123",
+      "id": 7
     }
   ]
 }

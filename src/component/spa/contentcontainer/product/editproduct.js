@@ -16,7 +16,10 @@ class EditProduct extends React.Component {
             id: 0,
             rating:0,
             stock:0,
-            productimage:''
+            image:'',
+            "validation": true,
+
+
         }
 
     }
@@ -32,7 +35,7 @@ class EditProduct extends React.Component {
                         id: response.data.id,
                         rating:response.data.rating,
                         stock:response.data.stock,
-                        productimage:response.data.productimage
+                        image:response.data.image
                     })
                 }, error=>{
                     console.error(error);
@@ -45,6 +48,7 @@ class EditProduct extends React.Component {
         console.log(event.target)
         console.log(event.target.value)
         this.setState({price: event.target.value})
+        this.validationfn()
     }
 
     getRating=(event)=>{
@@ -52,6 +56,7 @@ class EditProduct extends React.Component {
         console.log(event.target)
         console.log(event.target.value)
         this.setState({rating: event.target.value})
+        this.validationfn()
     }
 
     getStock=(event)=>{
@@ -59,6 +64,7 @@ class EditProduct extends React.Component {
         console.log(event.target)
         console.log(event.target.value)
         this.setState({stock: event.target.value})
+        this.validationfn()
     }
 
     getName=(event)=>{
@@ -66,6 +72,7 @@ class EditProduct extends React.Component {
         console.log(event.target)
         console.log(event.target.value)
         this.setState({name: event.target.value})
+        this.validationfn()
 
     }
 
@@ -74,9 +81,11 @@ class EditProduct extends React.Component {
         console.log(event.target);
         console.log(event.target.value);
         console.log(event.target.value.substr(12));
-        this.setState({productimage: event.target.value.substr(12)})
+        this.setState({image: event.target.value.substr(12)})
+        this.validationfn()
     }
 
+    
     editProduct=()=>{
         console.log('Edit product via axios and put')
         let productRequestBody = {
@@ -84,15 +93,31 @@ class EditProduct extends React.Component {
             "price": this.state.price,
             "rating":this.state.rating,
             "stock":this.state.stock,
-            "productimage":this.state.productimage
+            "image":this.state.image
         }
         axios.put('http://localhost:3000/allproducts/'+this.state.id, productRequestBody)
                 .then(response=>{
                     console.log(response);
+                    this.validationfn()
                     this.props.history.push('/products')
                 }, error=>{
                     console.error(error);
                 })
+    }
+
+    validationfn = () => {
+        setTimeout(() => {
+            console.log(this.state)
+            if ( (this.state.name === "") || this.state.price === "" || this.state.rating ===""||this.state.image==="" || this.state.price <= 0 || this.state.stock <= 0 ) {
+                console.log("fail")
+                this.setState({ validation: true })
+            } else {
+                console.log("success")
+                this.setState({ validation: false })
+            }
+        }, 10)
+
+
     }
 
     render() { 
@@ -118,6 +143,7 @@ class EditProduct extends React.Component {
                 {/* <h1>Edit product with id:{this.props.location.state.myid}  </h1> */}
                 <div className="contain">
                 <h2 style={{color:"red"}}>Edit Product</h2>
+                {this.state.validation && <h3 className="error">All the below details are required </h3>}
                 <form className="container">
                     <b><label>Id: </label></b>
                     <input type="text" value={this.state.id} readOnly></input>
@@ -125,25 +151,29 @@ class EditProduct extends React.Component {
                     <br></br>
                     <b><label>Name: </label></b>
                     <input type='text' id="productname" value={this.state.name}  onChange={this.getName}></input>
+                   
                     <br></br>
                     <br></br>
                     <b><label>Price: </label></b>
                     <input type='number' id="productprice" value={this.state.price}  onChange={this.getPrice}></input>
+                    
                     <br></br>
                     <br></br>
                     <b><label>Rating: </label></b>
                     <input type='number' id="productrating" value={this.state.rating}  onChange={this.getRating}></input>
+                  
                     <br></br>
                     <br></br>
                     <b><label>Stock: </label></b>
                     <input type='number' id="productstock" value={this.state.stock}  onChange={this.getStock}></input>
+                   
                     <br></br>
                     <br></br>
                     <b><label>Product Image: </label></b>
                     <input type="file" onChange={this.getImage} multiple accept='image/*' />
                     <br></br>
                     <br></br>
-                    <button type="button" onClick={this.editProduct} style={buttonclr}>Edit Product</button>
+                    <button type="button" disabled={this.state.validation} onClick={this.editProduct} style={buttonclr} >Edit Product</button>
                     <br></br>
                     <br></br>
                   

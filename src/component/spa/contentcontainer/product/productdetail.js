@@ -14,7 +14,7 @@ class ProductDetail extends React.Component {
             price:this.props.price,
             rating:this.props.rating,
             stock:this.props.stock,
-            img:this.props.productimage
+            img:this.props.image
         }
        
     }

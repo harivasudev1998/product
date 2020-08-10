@@ -70,15 +70,15 @@ class Login extends React.Component {
 
       
     render() { 
-        const buttonclr={
-            backgroundColor:"green",
-            color:"white",
-            padding:'15px',
-            border:'none',
-            opacity: 0.9,
+        // const buttonclr={
+        //     backgroundColor:"green",
+        //     color:"white",
+        //     padding:'15px',
+        //     border:'none',
+        //     opacity: 0.9,
     
             
-        } 
+        // } 
         return ( 
             <div className="contain" style={{backgroundColor:"lightgoldenrodyellow",paddingTop:'10px',paddingBottom:'330px'}}>
                 <h1 style={{color:"blue"}}>Login</h1>

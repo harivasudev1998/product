@@ -15,7 +15,7 @@ class Register extends React.Component {
             confirmpassword:'',
             invalidfirstname: false,
             invalidlastname: false,
-            invalidusername: true,
+            invalidusername: false,
             invalidpassword: false,
             invalidconfirmpassword: false,
             invalidsubmit: true,
@@ -97,6 +97,9 @@ class Register extends React.Component {
         } else {
             this.setState({ invalidpassword: false, password: event.target.value })
         }
+        
+        
+       
     }
 
     getconfirmpassword=(event)=>{
@@ -108,6 +111,21 @@ class Register extends React.Component {
         } else {
             this.setState({ invalidconfirmpassword: false, confirmpassword: event.target.value })
         }
+        
+        this.validsubmit();
+    }
+
+    validsubmit = () => {
+        console.log(this.state)
+        if (this.state.invalidfirstname || this.state.invalidlastname ||  this.state.username || this.state.password ) {
+            console.log('validation :success')
+            this.setState({ invalidsubmit: false })
+          
+        } else {
+            console.log('validation:fail')
+            this.setState({ invalidsubmit: true })
+        }
+        return this.state.invalidsubmit
     }
 
 
@@ -126,7 +144,7 @@ class Register extends React.Component {
             <div className="contain" style={{backgroundColor:"lightgoldenrodyellow",paddingTop:'10px',paddingBottom:'210px'}}>
                 <h1 style={{color:"blue"}}>Sign Up</h1>
                 {/* {this.state.existuser.length!=0 &&<h3 className='error'>User already exist !!! "Signup with different username"</h3>} */}
-                <form style={{textAlign:"center"}}>
+                <form style={{textAlign:"center",textAlign:"left",marginLeft:"40%"}}>
                     
                     <b><label>First Name: </label></b>
                     <input type='text' id="firstname" name="firstname" onChange={this.getfirstname}></input>
@@ -157,17 +175,18 @@ class Register extends React.Component {
                     <br></br>
 
                     <b><label>Confirm Password:</label></b>
-                    <input type="confirmpassword" id="confirmpassword"  onChange={this.getconfirmpassword}></input>
+                    <input type="password" id="confirmpassword"  onChange={this.getconfirmpassword}></input>
                     {this.state.invalidconfirmpassword && <span className='error'>Confirm Password should match with Password</span>}
                     <br></br>
-                    {/* Confirm Password: { this.state.confirmpassword } */}
+                 
                     <br></br>
 
 
-                    <input type="button" onClick={this.signUp} value="SignUp"></input>
+
+                    <input type="button" onClick={this.signUp} style={{marginLeft:"80px"}} value="SignUp" disabled={this.state.invalidsubmit}></input>
                     <br></br>
                     <br></br>
-                    
+                    {/* disabled={this.state.invalidsubmit} */}
                     
                 </form>
             </div>
