@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Navbar } from 'react-bootstrap';
 
 
 class NavigationBar extends React.Component {
@@ -16,7 +17,8 @@ class NavigationBar extends React.Component {
 
 
         return (  
-            <span>
+            <Navbar>
+            <span className="navbarview">
                 <ul style={{listStyleType:'none'}}>
                     <li style={menuitem}>
                         <Link to="/" style={{ textDecoration:'none'}}>Home</Link>
@@ -42,7 +44,7 @@ class NavigationBar extends React.Component {
                     
                 </ul>
             </span>
-
+</Navbar>
         );
     }
 }

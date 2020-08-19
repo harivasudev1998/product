@@ -100,7 +100,7 @@ class Login extends React.Component {
                     <br></br>
                     <br></br>
                     
-                    <a href="/">Forgot Password.?</a>&nbsp;
+                    {/* <a href="/register">Forgot Password.?</a>&nbsp; */}
                     <input type="button" onClick={this.login} disabled={this.state.invalidUsername || this.state.invalidPassword} value="Login"></input>
                     <br></br>
                     <br></br>

@@ -1,7 +1,8 @@
 import React from 'react';
 // import axios from 'axios';
-import { createHashHistory } from 'history'
-import '../css/App.css';;
+import { createHashHistory } from 'history';
+import '../css/App.css';
+import { Container, Col, Row } from 'react-bootstrap'
 
 
 
@@ -14,6 +15,8 @@ class ProductDetail extends React.Component {
             price:this.props.price,
             rating:this.props.rating,
             stock:this.props.stock,
+            description:this.props.description,
+            category:this.props.category,
             img:this.props.image
         }
        
@@ -55,7 +58,7 @@ class ProductDetail extends React.Component {
      
             
             
-        // } 
+      
       
       
         return ( 
@@ -68,11 +71,13 @@ class ProductDetail extends React.Component {
         <span className="cards right">
             <br></br><h3 className="cardtitle">{this.props.name}</h3><br></br>
             <h4 className="carditem"><span className="left">Rs: {this.props.price}</span></h4><br></br>
+            <h4 className="carditem"><span className="left">Description:{this.props.description}</span></h4><br></br>
+            <h4 className="carditem"><span className="left">Category:{this.props.category}</span></h4><br></br>
             <h4 className="carditem"><span className="left">Stock: {this.props.stock}</span><span className="right">Rating: {this.props.rating}</span></h4><br></br>
-            <h4 className="carditem"><span><button className="left buttonClr" onClick={this.stockAdd} >Stock +</button>
-            <button className="left buttonClr" onClick={this.stockSub} >Stock -</button></span></h4>
+            <h4 className="carditem"><span><button className="left buttonClr1" onClick={this.stockAdd} >Stock +</button>
+            <button className="left buttonClr2" onClick={this.stockSub} >Stock -</button></span></h4>
             <h4 className="carditem"><span>
-            <button className="right buttonClr" onClick={this.deleteCurrentProduct} >Delete</button><button className="right buttonClr" onClick={this.editProductWithId} >Edit</button></span></h4>
+            <button className="right buttonClr2" onClick={this.deleteCurrentProduct} >Delete</button><button className="right buttonClr1" onClick={this.editProductWithId} >Edit</button></span></h4>
         </span>
     </div>
         )

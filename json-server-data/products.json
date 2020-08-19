@@ -4,7 +4,9 @@
       "name": "One plus Nord 5G",
       "price": "32500",
       "rating": "10",
-      "stock": 180,
+      "stock": 139,
+      "category": "Mobile",
+      "description": "Very new awesome product",
       "image": "1.jpg",
       "id": 1
     },
@@ -12,7 +14,9 @@
       "name": "Oppo",
       "price": "20000",
       "rating": "9",
-      "stock": 123,
+      "stock": 150,
+      "category": "Mobile",
+      "description": "Brand new mobile by oppo",
       "image": "2.jpg",
       "id": 2
     },
@@ -20,7 +24,9 @@
       "name": "Redmi",
       "price": "14000",
       "rating": "9",
-      "stock": "134",
+      "stock": 161,
+      "category": "Mobile",
+      "description": "Brand New Mobile by Redmi",
       "image": "3.jpg",
       "id": 3
     },
@@ -28,9 +34,21 @@
       "name": "Samsung Galaxy M31",
       "price": "20000",
       "rating": "9",
-      "stock": "122",
+      "stock": 139,
+      "category": "Mobile",
+      "description": "Brand new mobile by Samsung ",
       "image": "4.jpg",
       "id": 4
+    },
+    {
+      "name": "Asus",
+      "price": "50000",
+      "rating": "10",
+      "stock": "132",
+      "category": "Laptop",
+      "description": "New Laptop at reasonable rates",
+      "image": "6.jpg",
+      "id": 5
     }
   ],
   "users": [
@@ -89,6 +107,14 @@
       "password": "123",
       "confirmpassword": "123",
       "id": 7
+    },
+    {
+      "firstname": "hari123",
+      "lastname": "vasudev12",
+      "username": "hari11",
+      "password": "123",
+      "confirmpassword": "123",
+      "id": 8
     }
   ]
 }

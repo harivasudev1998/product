@@ -65,11 +65,11 @@ getChartData() {
 }
 render() { 
     return ( 
-        <div className="dashboard" style={{marginBottom:"100px"}}>
-            
+        <div className="dashboard" style={{backgroundColor:"lightgoldenrodyellow",paddingTop:'10px',paddingBottom:'200px'}}>
+          
             <div>
         
-                <h1 style={{color:'blue',backgroundColor:"yellowgreen",textAlign:"center",fontFamily:"cursive"}}>Dashboard</h1>
+                <h1 style={{color:'blue',backgroundColor:"cyan",textAlign:"center",fontFamily:"cursive"}}>Dashboard</h1>
                 <Pie
                 data={this.state.chartData}
                 height={80}

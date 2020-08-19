@@ -98,7 +98,7 @@ class Product extends React.Component {
                     
                         // this.setState({since:parseInt(response.data.since)+1})
                                  this.getAllProducts()
-                                 window.location.reload(false);
+                                //  window.location.reload(false);
                                 },error=>{
                                     console.log(error.error)
                                 })
@@ -129,6 +129,8 @@ class Product extends React.Component {
                         name={product.name}
                         price={product.price}
                         rating={product.rating}
+                        description={product.description}
+                        category={product.category}
                         img={product.image}
                         stock={product.stock}
                         deleteId={this.deleteProductWithId}
@@ -164,17 +166,7 @@ class Product extends React.Component {
     }
   
     render() {
-        // const buttonProduct={
-        //     backgroundColor:"green",
-        //     color:"white",
-        //     padding:'100px',
-        //     margin:'10px',
-        //     border:'none',
-        //     opacity: 0.8,
-        //     float:'right',
-        //     marginRight:'20%'
-            
-        // } 
+ 
         return ( 
     
                <div className="container">

@@ -16,6 +16,8 @@ class EditProduct extends React.Component {
             id: 0,
             rating:0,
             stock:0,
+            description:'',
+            category: '',
             image:'',
             "validation": true,
 
@@ -35,6 +37,8 @@ class EditProduct extends React.Component {
                         id: response.data.id,
                         rating:response.data.rating,
                         stock:response.data.stock,
+                        category: this.state.category,
+                        description:response.data.description,
                         image:response.data.image
                     })
                 }, error=>{
@@ -76,6 +80,20 @@ class EditProduct extends React.Component {
 
     }
 
+    getDescription=(event)=>{
+        console.log(event)
+        console.log(event.target)
+        console.log(event.target.value)
+        this.setState({description: event.target.value})
+        this.validationfn()
+
+    }
+
+    getCategory = (event) => {
+        this.setState({ category: event.target.value })
+        this.validationfn()
+    }
+
     getImage=(event)=>{
         console.log(event);
         console.log(event.target);
@@ -93,6 +111,8 @@ class EditProduct extends React.Component {
             "price": this.state.price,
             "rating":this.state.rating,
             "stock":this.state.stock,
+            "category":this.state.category,
+            "description":this.state.description,
             "image":this.state.image
         }
         axios.put('http://localhost:3000/allproducts/'+this.state.id, productRequestBody)
@@ -108,7 +128,7 @@ class EditProduct extends React.Component {
     validationfn = () => {
         setTimeout(() => {
             console.log(this.state)
-            if ( (this.state.name === "") || this.state.price === "" || this.state.rating ===""||this.state.image==="" || this.state.price <= 0 || this.state.stock <= 0 ) {
+            if ( (this.state.name === "") || this.state.price === "" || this.state.rating ===""||this.state.image==="" || this.state.price <= 0 || this.state.stock <= 0 ||this.state.description === ''||this.state.category === ''  ) {
                 console.log("fail")
                 this.setState({ validation: true })
             } else {
@@ -162,6 +182,21 @@ class EditProduct extends React.Component {
                     <b><label>Rating: </label></b>
                     <input type='number' id="productrating" value={this.state.rating}  onChange={this.getRating}></input>
                   
+                    <br></br>
+                    <br></br>
+                    <b><label>Description: </label></b>
+                    <input type='text' id="productdescription" value={this.state.description}  onChange={this.getDescription}></input>
+
+                    <br></br>
+                    <br></br>
+                    <span><label htmlFor="category">Category</label>
+                                    <select  id="category" name="category" value={this.state.category} onChange={this.getCategory}>
+                                        <option value=""></option>
+                                        <option value="Mobile">Mobile</option>
+                                        <option value="Laptop">Laptop</option>
+                                        <option value="Groceries">Groceries</option>
+                                    </select>
+                    </span>
                     <br></br>
                     <br></br>
                     <b><label>Stock: </label></b>

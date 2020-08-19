@@ -8,9 +8,11 @@ class Footer extends React.Component {
             color:"red",
             backgroundColor:"pink",
             display:'inline',
-            padding: '10px',
-            margin: ''
-          
+            marginLeft:'70%',
+            width:'100px',
+            height:'30px',
+            textDecoration:'none',
+            border:'none'
             
         }
         return ( 
@@ -20,11 +22,8 @@ class Footer extends React.Component {
                
 
                 <span>
-                <ul style={{listStyleType:'none',position:"fixed",bottom:"0"}}>
-                    <li style={logout}>
-                        <Link to="/login" style={{ textDecoration:'none'}}>Logout</Link>
-                    </li>
-                </ul>
+             
+                <button style={logout}><Link to="/login" style={{ textDecoration:'none'}}>Logout</Link></button>
             </span>
 
                 </div>

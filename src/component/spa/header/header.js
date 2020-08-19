@@ -1,7 +1,7 @@
 import React from 'react';
 import NavigationBar from './navbar';
 import '../contentcontainer/css/App.css'
-
+import { Navbar, Nav } from 'react-bootstrap'
 
 class Header extends React.Component {
    
@@ -9,12 +9,14 @@ class Header extends React.Component {
      
 
         return ( 
-            <div className="head">
+           
+            <div className="head ">
             
              <NavigationBar ></NavigationBar>       
           
     
             </div>
+           
          );
     }
 }
